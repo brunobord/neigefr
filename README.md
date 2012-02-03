@@ -16,8 +16,8 @@ mains et voilà.
 
 ### Comment ça marche ?
 
-N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver
-peut twitter comme suit:
+N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel,
+l'hiver, il peut twitter comme suit :
 
     LOL il neige #neigefr 75008 3/10 MDR
 
