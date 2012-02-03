@@ -3,11 +3,11 @@ from neigefr.models import Zipcode, Snowflake
 
 
 class ZipcodeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('city', 'longitude', 'latitude')
 
 
 class SnowflakeAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('pk', 'tweet_id', 'zipcode', 'rank')
 
 admin.site.register(Zipcode, ZipcodeAdmin)
 admin.site.register(Snowflake, SnowflakeAdmin)

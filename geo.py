@@ -2,13 +2,19 @@ from django.conf import settings
 import json
 import requests
 
+SPECIAL_CASES = {'75000': 'Paris'}
+
 
 def get_geo(zipcode):
-    url = "http://maps.google.com/maps/geo?q="+zipcode+",France&output=json&sensor=false&key="+settings.GOOGLE_MAPS_KEY
+    searched_code = zipcode
+    if zipcode in SPECIAL_CASES:
+        searched_code = SPECIAL_CASES[zipcode]
+    url = "http://maps.google.com/maps/geo?q=%s,+France&output=json&sensor=false&key=%s" % (searched_code, settings.GOOGLE_MAPS_KEY)
     location = get_from_geo(url)
+    # print json.dumps(location, indent=3)
     status = location["Status"]["code"]
     if status != 200:
-        return None, None
+        return None, None, None
     place = location["Placemark"][0]
     country_code = place["AddressDetails"]["Country"]["CountryNameCode"]
     if country_code != "FR":

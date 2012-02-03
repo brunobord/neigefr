@@ -16,7 +16,7 @@ class Snowflake(models.Model):
     tweet = models.TextField("raw tweet")
     latitude = models.CharField('latitude', max_length=100)
     longitude = models.CharField('longitude', max_length=100)
-    rank = models.IntegerField('rank')
+    rank = models.IntegerField('rank', blank=True, null=True)
     zipcode = models.ForeignKey(Zipcode, blank=True)
 
     class Meta:
