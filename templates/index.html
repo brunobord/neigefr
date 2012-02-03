@@ -2,8 +2,17 @@
 <html>
 <head>
 	<title>Neige FR, tweete ta neige #neigefr</title>
+	<link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Condiment' rel='stylesheet' type='text/css'>
+
 	<style type="text/css">
+	body {font-family: 'Vollkorn', cursive;}
+	h1 {font-family: 'Condiment', cursive; text-align: center;}
 	#map { height: 100%; }
+	.map { height: 600px; }
+	.explications { font-size: 70%; }
+	q { font-style: italic; }
+	ul {padding-left: .5em;}
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}960.css">
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_KEY }}&sensor=false"></script>
@@ -40,17 +49,45 @@
 <body onload="initialize()">
 <div class="container_12">
 
-  <div class="grid_3">
-    <p>
-      Stuff
-    </p>
-  </div>
-  <!-- end .grid_3 -->
-  <div class="grid_9" style="border: 2px solid black; height: 600px;">
-  		<div id="map" style="width:100%; height:100%"></div>
-  </div>
-  <!-- end .grid_9 -->
-  <div class="clear"></div>
+	<div class="grid_12">
+		<h1>#neigefr / Twitte ta neige !</h1>
+	</div>
+
+	<div class="clear"></div>
+	<div class="grid_4 explications">
+	<h2>Comment ça marche ?</h2>
+
+<p>N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver,
+il peut twitter comme suit :</p>
+
+    <q>LOL il neige #neigefr 75008 3/10 MDR</q>
+
+<p>Les éléments indispensables sont :</p>
+
+<ul>
+	<li>"#neigefr" : c'est le hashtag **OFFICIEL**</li>
+	<li>"75008": c'est le code postal de l'endroit où tombe la neige.</li>
+</ul>
+
+<p>De manière optionnelle, tu peux ajouter un "niveau" sur 10 qui indique à quel
+point il est en train de neiger. À titre indicatif :</p>
+
+<ul>
+<li>*7/10* ou plus - Tempête de neige !</li>
+<li>*5/10* ou *6/10* - Solide averse</li>
+<li>*3/10* ou *4/10* - Petite averse</li>
+<li>*1/10* ou *2/10* - Quelques flocons</li>
+<li>*0/10* - Y'a plus la neige... :-(</li>
+</ul>
+
+<p>Avec un peu de chances, ton tweet viendra enrichir la carte de l'enneigement en
+France sur <a href="http://neigefr.org">Neige FR</a>.</p>
+	</div>
+	<!-- end .grid_3 -->
+	<div class="grid_8 map">
+		<div id="map" style="width:100%; height:100%"></div>
+	</div>
+	<div class="clear"></div>
 
 
 </div>
