@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 
@@ -18,6 +19,7 @@ class Snowflake(models.Model):
     longitude = models.CharField('longitude', max_length=100)
     rank = models.IntegerField('rank', blank=True, null=True)
     zipcode = models.ForeignKey(Zipcode, blank=True)
+    date_created = models.DateTimeField('date created', default=datetime.datetime.now)
 
     class Meta:
         verbose_name = 'flake'
