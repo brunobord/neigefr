@@ -1,12 +1,15 @@
-# from django.views.generic import TemplateView
+import datetime
 from django.views.generic import ListView
-from neigefr.models import Snowflake
 from django.conf import settings
+from neigefr.models import Snowflake
+
+
+datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=1)
 
 
 class IndexView(ListView):
     template_name = "index.html"
-    queryset = Snowflake.objects.exclude(rank=0)[:100]
+    queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
