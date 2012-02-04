@@ -13,6 +13,7 @@
 	.explications { font-size: 70%; }
 	q { font-style: italic; }
 	ul {padding-left: .5em;}
+	#footer { font-size: 60%; text-align: right; border-top: 1px solid #777; margin-top: 1em;}
 	</style>
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}960.css">
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_KEY }}&sensor=false"></script>
@@ -83,11 +84,14 @@ point il est en train de neiger. À titre indicatif :</p>
 <p>Avec un peu de chances, ton tweet viendra enrichir la carte de l'enneigement en
 France sur <a href="http://neigefr.org">Neige FR</a>.</p>
 	</div>
-	<!-- end .grid_3 -->
 	<div class="grid_8 map">
 		<div id="map" style="width:100%; height:100%"></div>
 	</div>
 	<div class="clear"></div>
+
+	<div class="grid_12" id="footer">
+		<p>Ce site est l'oeuvre de <a href="http://jehaisleprintemps.net">Bruno Bord</a> - 2012. Très largement inspiré par la belle idée de <a href="http://uksnowmap.com/">#uksnow</a>.</p>
+	</div>
 
 
 </div>
