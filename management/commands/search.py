@@ -15,7 +15,6 @@ class Command(NoArgsCommand):
 
     def handle(self, **options):
         url = 'http://search.twitter.com/search.json?q=%23neigefr'
-        logger.critical(url)
         last_snowflakes = Snowflake.objects.order_by('-tweet_id')
         if last_snowflakes.count():
             last = last_snowflakes[0]
