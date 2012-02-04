@@ -38,9 +38,6 @@ point il est en train de neiger. A titre indicatif :
 Avec un peu de chances, ton tweet viendra enrichir la carte de l'enneigement en
 France sur [Neige FR](http://neigefr.org).
 
-**Note** : Le site n'est pas encore fonctionnel. Inutile d'y aller pour le
-moment. Mais rien ne t'empêche de twitter la neige chez toi.
-
 
 ### A quel point c'est précis ?
 
@@ -49,8 +46,8 @@ neige. Plus nous serons nombreux à twitter en utilisant le hashtag `#neigefr`,
 plus la carte représentera en quasi-direct les chutes de neige sur le
 territoire.
 
-Bon, je retourne coder.
-
 ### Références
 
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
+* Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets.
+* L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public.
