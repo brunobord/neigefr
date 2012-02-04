@@ -4,12 +4,8 @@ from django.conf import settings
 from neigefr.models import Snowflake
 
 
-datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=1)
-
-
 class IndexView(ListView):
     template_name = "index.html"
-    queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -17,3 +13,8 @@ class IndexView(ListView):
         # Add in a QuerySet of all the books
         context['GOOGLE_MAPS_KEY'] = settings.GOOGLE_MAPS_KEY
         return context
+
+    def get_queryset(self):
+        datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=1)
+        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
+        return queryset
