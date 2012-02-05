@@ -4,67 +4,12 @@
 	<title>Neige FR, tweete ta neige #neigefr</title>
 	<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
-
-
 	<link href="{{ STATIC_URL }}snowflake_icon.png" rel="shortcut icon" />
 
-	<style type="text/css">
-	body {font-family: 'Vollkorn', cursive;}
-	h1 {font-family: 'Bubblegum Sans', cursive; text-align: center;}
-	#map { height: 100%; }
-	.map { height: 600px; }
-	.explications { font-size: 70%; }
-	q { font-style: italic; }
-	ul {padding-left: .5em;}
-	#footer { font-size: 60%; text-align: right; border-top: 1px solid #777; margin-top: 1em;}
-	</style>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
+
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}960.css">
-	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_KEY }}&sensor=false"></script>
-	<script type="text/javascript">
-      function initialize() {
-        var myOptions = {
-          center: new google.maps.LatLng(46.9, 1.3),
-          zoom: 6,
-          mapTypeId: google.maps.MapTypeId.TERRAIN
-        };
-        var map = new google.maps.Map(document.getElementById("map"), myOptions);
-        var snowflake_icon = new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
-      // This marker is 20 pixels wide by 32 pixels tall.
-      new google.maps.Size(32, 32),
-      // The origin for this image is 0,0.
-      new google.maps.Point(0,0),
-      // The anchor for this image is the base of the flagpole at 0,32.
-      new google.maps.Point(16, 16));
-
-	    var snowflakes = Array();
-{% for snowflake in object_list %}
-		snowflakes.push(new google.maps.Marker({
-			position: new google.maps.LatLng({{snowflake.latitude}}, {{ snowflake.longitude}}),
-			map: map,
-			icon: snowflake_icon,
-			title: "{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}"}
-	 ));
-{% endfor %}
-      }
-
-    </script>
-
-
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-2980397-12']);
-  _gaq.push(['_setDomainName', 'neigefr.org']);
-  _gaq.push(['_setAllowLinker', true]);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+	{% include "_head_js.html" %}
 
 </head>
 <body onload="initialize()">
