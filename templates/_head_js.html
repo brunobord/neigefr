@@ -7,17 +7,17 @@
 			mapTypeId: google.maps.MapTypeId.TERRAIN
 		};
 		var map = new google.maps.Map(document.getElementById("map"), myOptions);
-		var snowflake_icon = new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
-				new google.maps.Size(32, 32),
-				new google.maps.Point(0,0),
-				new google.maps.Point(16, 16));
-
 		var snowflakes = Array();
 {% for snowflake in object_list %}
 		snowflakes.push(new google.maps.Marker({
 				position: new google.maps.LatLng({{snowflake.latitude}}, {{ snowflake.longitude}}),
 				map: map,
-				icon: snowflake_icon,
+				icon: new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
+				new google.maps.Size(32, 32),
+				new google.maps.Point(0,0),
+				new google.maps.Point(32, 32),
+				new google.maps.Size({{ snowflake.flakesize }}, {{ snowflake.flakesize }})
+			),
 				title: "{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}"}
  ));
 {% endfor %}
