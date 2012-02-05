@@ -1,5 +1,6 @@
 from django.test import TestCase
 from neigefr.flake import parse_body, process
+from neigefr.models import Snowflake
 
 
 class FlakeTest(TestCase):
@@ -45,3 +46,34 @@ class FlakeTest(TestCase):
         self.assertEquals(snowflake.latitude, zipcode.latitude)
         self.assertEquals(snowflake.longitude, zipcode.longitude)
         self.assertEquals(snowflake.rank, 2)
+
+    def test_flakesize(self):
+        snowflake = Snowflake()
+        snowflake.rank = 0
+        self.assertEquals(snowflake.flakesize, 0)
+        snowflake.rank = 1
+        self.assertEquals(snowflake.flakesize, 6)
+        snowflake.rank = 2
+        self.assertEquals(snowflake.flakesize, 8)
+        snowflake.rank = 3
+        self.assertEquals(snowflake.flakesize, 8)
+        snowflake.rank = 4
+        self.assertEquals(snowflake.flakesize, 12)
+        snowflake.rank = 5
+        self.assertEquals(snowflake.flakesize, 16)
+        snowflake.rank = 6
+        self.assertEquals(snowflake.flakesize, 16)
+        snowflake.rank = 7
+        self.assertEquals(snowflake.flakesize, 24)
+        snowflake.rank = 8
+        self.assertEquals(snowflake.flakesize, 24)
+        snowflake.rank = 9
+        self.assertEquals(snowflake.flakesize, 32)
+        snowflake.rank = 10
+        self.assertEquals(snowflake.flakesize, 32)
+
+        # special cases
+        snowflake.rank = None
+        self.assertEquals(snowflake.flakesize, 8)
+        snowflake.rank = 11
+        self.assertEquals(snowflake.flakesize, 32)

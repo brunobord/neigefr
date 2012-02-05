@@ -24,3 +24,23 @@ class Snowflake(models.Model):
     class Meta:
         verbose_name = 'flake'
         verbose_name_plural = 'flakes'
+
+    @property
+    def flakesize(self):
+        rank = self.rank
+        if self.rank > 10:
+            rank = 10
+        sizes = {
+            0: 0,
+            1: 6,
+            2: 8,
+            3: 8,
+            4: 12,
+            5: 16,
+            6: 16,
+            7: 24,
+            8: 24,
+            9: 32,
+            10: 32
+        }
+        return sizes.get(rank, 8)
