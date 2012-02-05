@@ -1,27 +1,44 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
 	<title>Neige FR, tweete ta neige #neigefr</title>
+	<meta name="description" content="Tu twitte ta neige, ça apparaît sur la carte. Yahou.">
+	<meta name="author" content="Bruno Bord">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/skeleton.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/layout.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
 	<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css" />
 	<link href='http://fonts.googleapis.com/css?family=Bubblegum+Sans' rel='stylesheet' type='text/css'>
 	<link href="{{ STATIC_URL }}snowflake_icon.png" rel="shortcut icon" />
-
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css">
-
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}960.css">
 	{% include "_head_js.html" %}
-
 </head>
 <body onload="initialize()">
-<div class="container_12">
+<div class="container">
 
-	<div class="grid_12">
-		<h1>#neigefr / Twitte ta neige !</h1>
-	</div>
+	<h1>#neigefr / Twitte ta neige !</h1>
 
-	<div class="clear"></div>
-	<div class="grid_4 explications">
-	<h2>Comment ça marche ?</h2>
+	<div class="six columns explications">
+	<h3>Comment ça marche ?</h3>
 
 <p>N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver,
 il peut twitter comme suit :</p>
@@ -54,12 +71,12 @@ première neige, la peinture est encore assez fraîche. Aussi, merci de bien
 vouloir excuser les différents bugs... et éventuellement <a href="https://github.com/brunobord/neigefr/issues/">les signaler</a>.</p>
 
 	</div>
-	<div class="grid_8 map">
+	<div class="ten columns map">
 		<div id="map" style="width:100%; height:100%"></div>
 	</div>
 	<div class="clear"></div>
 
-	<div class="grid_12" id="footer">
+	<div class="" id="footer">
 		<p>Ce site est l'oeuvre de <a href="http://jehaisleprintemps.net">Bruno Bord</a> - 2012. Très largement inspiré par la belle idée de <a href="http://uksnowmap.com/">#uksnow</a>.</p>
 	</div>
 
