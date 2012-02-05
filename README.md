@@ -3,6 +3,8 @@
 This is a #uksnow ripoff. But for french people. So this README is written in
 French.
 
+-------------------------------------------------------------------------------
+
 Bon, alors. Depuis quelques années on a droit à un hashtag sur la toile, que
 je vois avec envie dans ma timeline:
 
@@ -17,7 +19,7 @@ mains et voilà.
 ### Comment ça marche ?
 
 N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel,
-l'hiver, il peut twitter comme suit :
+l'hiver, peut twitter comme suit :
 
     LOL il neige #neigefr 75008 3/10 MDR
 
@@ -51,3 +53,9 @@ territoire.
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
 * Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets.
 * L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public.
+
+### Licence d'utilisation
+
+Le code de cette application Django peut être réutilisé par n'importe qui, pour
+en faire n'importe quoi. Voilà pourquoi j'ai décidé d'élever ce code dans le
+**Domaine Public**.
