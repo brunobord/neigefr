@@ -53,6 +53,8 @@ territoire.
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
 * Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets.
 * L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public.
+* J'utilise le framework ["Skeleton"](http://www.getskeleton.com/) pour le layout HTML5.
+* La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans)
 
 ### Licence d'utilisation
 
