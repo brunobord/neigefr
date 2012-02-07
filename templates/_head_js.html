@@ -15,7 +15,7 @@
 				icon: new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
 				new google.maps.Size(32, 32),
 				new google.maps.Point(0,0),
-				new google.maps.Point(32, 32),
+				new google.maps.Point({{ snowflake.flakesize }} / 2, {{ snowflake.flakesize }} / 2),
 				new google.maps.Size({{ snowflake.flakesize }}, {{ snowflake.flakesize }})
 			),
 				title: "{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}"}
