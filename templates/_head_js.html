@@ -8,21 +8,36 @@
 		};
 		var map = new google.maps.Map(document.getElementById("map"), myOptions);
 		var snowflakes = Array();
-{% for snowflake in object_list %}
-		snowflakes.push(new google.maps.Marker({
+		var infowindow = new google.maps.InfoWindow({
+			content: "chargement..."
+		});
+		{% for snowflake in object_list %}
+			flakesize = {{ snowflake.flakesize }};
+			half_flakesize = {{ snowflake.flakesize }}/2;
+			marker = new google.maps.Marker({
 				position: new google.maps.LatLng({{snowflake.latitude}}, {{ snowflake.longitude}}),
 				map: map,
 				icon: new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
-				new google.maps.Size(32, 32),
-				new google.maps.Point(0,0),
-				new google.maps.Point(32, 32),
-				new google.maps.Size({{ snowflake.flakesize }}, {{ snowflake.flakesize }})
-			),
+					new google.maps.Size(32, 32),
+					new google.maps.Point(0,0),
+					new google.maps.Point(half_flakesize, half_flakesize),
+					new google.maps.Size(flakesize, flakesize)
+				),
+				shadow: new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon_shadow.png',
+					new google.maps.Size(38, 39),
+					new google.maps.Point(0,0),
+					new google.maps.Point(half_flakesize, half_flakesize),
+					new google.maps.Size(flakesize, flakesize)
+				),
 				title: "{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}"}
- ));
-{% endfor %}
+ 			);
+			snowflakes.push(marker);
+	 		google.maps.event.addListener(marker, 'click', function () {
+				infowindow.setContent("<img class='tweet_picture' src='{{ snowflake.tweet_object.profile_image_url }}' alt='Image {{ snowflake.tweet_object.from_user_name }}' /><div class='tweet_body'><a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user_name }}</a><br>{{ snowflake.tweet_object.text }}</div>");
+				infowindow.open(map, this);
+			});
+		{% endfor %}
 	}
-
 </script>
 
 

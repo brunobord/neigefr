@@ -1,5 +1,6 @@
 import datetime
 from django.db import models
+import json
 
 
 class Zipcode(models.Model):
@@ -24,7 +25,11 @@ class Snowflake(models.Model):
     class Meta:
         verbose_name = 'flake'
         verbose_name_plural = 'flakes'
-
+    
+    @property
+    def tweet_object(self):
+        return json.loads(self.tweet)
+    
     @property
     def flakesize(self):
         rank = self.rank

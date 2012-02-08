@@ -5,3 +5,7 @@ h2 {font-size: 70%;}
 .explications { font-size: 90%; }
 q { font-style: italic; }
 #footer { font-size: 60%; text-align: right; border-top: 1px solid #777; margin-top: 1em;}
+.tweet_picture,
+.tweet_body{float:right;}
+.tweet_body{width:270px;}
+.tweet_picture{width:50px;}
