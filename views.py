@@ -18,3 +18,5 @@ class IndexView(ListView):
         datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=1)
         queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
         return queryset
+
+
