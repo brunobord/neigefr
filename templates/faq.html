@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1>#neigefr / Twitte ta neige !</h1>
+	<h1><a href="/">#neigefr / Twitte ta neige !</a></h1>
+
+	<div class="eight columns explications">
 	<h2>Foire Aux Questions</h2>
-
-	<div class="ten columns map">
-		<div id="map" style="width:100%; height:100%"></div>
-	</div>
-
-	<div class="six columns explications">
-	<h4>1. Je viens de twitter avec le hashtag #neigefr, et je n'apparaît pas !</h4>
+	<h3>1. Je viens de twitter avec le hashtag #neigefr, et je n'apparaît pas !</h3>
 	<p>C'est normal. Il y a un délai maximum de 5mn entre le tweet et son apparition
 	effective sur la carte.</p>
 	<p>Il se peut aussi que ton tweet ne soit pas complet. Il faut bien s'assurer
@@ -19,14 +15,15 @@
 	</ul>
 	<hr />
 
-	<h4>2. J'ai twitté ce matin, et mon flocon n'apparaît plus...</h4>
+	<h3>2. J'ai twitté ce matin, et mon flocon n'apparaît plus...</h3>
 	<p>C'est normal. On ne peut pas imaginer conserver tous les tweets et
 		les afficher sur la carte indéfiniment. Au bout de 4h maximum, chaque
 		tweet / flocon disparaît de la carte. Si la neige persiste, renvoie
 		un nouveau message et le flocon apparaîtra de nouveau.</p>
+	<hr />
 
-	<h4>3. J'ai bien renseigné mon tweet, mais le flocon est décalé de plusieurs
-		kilomètres.</h4>
+	<h3>3. J'ai bien renseigné mon tweet, mais le flocon est décalé de plusieurs
+		kilomètres.</h3>
 	<p>C'est (presque) normal. En fait, je n'ai pas enregistré tous les codes
 		postaux et toutes les coordonnées GPS de toutes les communes de France.
 		Aussi, quand tu tweetes un code postal, je demande à Google Maps
