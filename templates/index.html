@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1><a href="/">#neigefr / Twitte ta neige !</a></h1>
+	<h1><a href="{% url index %}">#neigefr / Twitte ta neige !</a></h1>
 
 	<div class="ten columns map">
 		<div id="map" style="width:100%; height:100%"></div>
@@ -35,7 +35,7 @@ point il est en train de neiger. À titre indicatif :</p>
 <p>Avec un peu de chances, ton tweet viendra enrichir la carte de l'enneigement
 en France sur <a href="http://neigefr.org">Neige FR</a>.</p>
 
-<p>Si certaines questions restent sans réponse : <a href="/faq/">La Foire Aux Questions</a> est
+<p>Si certaines questions restent sans réponse : <a href="{% url faq %}">La Foire Aux Questions</a> est
 là pour y répondre.</p>
 
 <p><strong>Avertissement !</strong> On peut dire que ce site en est à sa
