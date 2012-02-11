@@ -3,7 +3,7 @@ from neigefr.models import Zipcode
 
 
 ZIPCODE = re.compile('(F-)?([0-9]{5})', re.IGNORECASE)
-RANKING = re.compile('([0-9])/10')
+RANKING = re.compile('([0-9]+)/10')
 
 
 class Flake(object):

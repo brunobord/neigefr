@@ -10,6 +10,9 @@ class FlakeTest(TestCase):
         flake = parse_body(content)
         self.assertEquals(flake.zipcode, '64100')
         self.assertEquals(flake.ranking, 2)
+        content = "#neigefr 64100 10/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 10)
 
     def test_process(self):
         data = {
