@@ -5,6 +5,7 @@ from neigefr.models import Snowflake
 
 
 class IndexView(ListView):
+    "Home page"
     template_name = "index.html"
 
     def get_context_data(self, **kwargs):
@@ -18,5 +19,3 @@ class IndexView(ListView):
         datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=4)
         queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
         return queryset
-
-

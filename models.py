@@ -4,6 +4,7 @@ import json
 
 
 class Zipcode(models.Model):
+    "France-based Zipcode"
     zipcode = models.CharField("zipcode", max_length=10, db_index=True)
     city = models.CharField('city', max_length=255, blank=True)
     latitude = models.CharField('latitude', max_length=100)
@@ -14,6 +15,7 @@ class Zipcode(models.Model):
 
 
 class Snowflake(models.Model):
+    "A tweet equals a snowflake."
     tweet_id = models.BigIntegerField('tweet ID', unique=True, db_index=True)
     tweet = models.TextField("raw tweet")
     latitude = models.CharField('latitude', max_length=100)
@@ -28,10 +30,12 @@ class Snowflake(models.Model):
 
     @property
     def tweet_object(self):
+        "Load the tweet full object, for eventual further analysis"
         return json.loads(self.tweet)
 
     @property
     def flakesize(self):
+        "Return the snowflake size in pixels."
         rank = self.rank
         if self.rank > 10:
             rank = 10
