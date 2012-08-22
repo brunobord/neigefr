@@ -1,22 +1,32 @@
-<script type="text/javascript" src="{{ STATIC_URL }}js/OpenLayers.js"></script>
+<script src="{{ STATIC_URL }}js/mqa.toolkit.js"></script>
+
 <script type="text/javascript">
-        var map, layer;
-        function initialize(){
-            map = new OpenLayers.Map('map');
-            layer = new OpenLayers.Layer.OSM("France");
-            map.addLayer(layer);
 
-            var newl = new OpenLayers.Layer.Text( "text", { location:'{% url text %}'} );
-            map.addLayer(newl);
+    MQA.EventUtil.observe(window, 'load', function() {
 
-            map.setCenter(
-                new OpenLayers.LonLat(2.496667, 46.599722).transform(
-                    new OpenLayers.Projection("EPSG:4326"),
-                    map.getProjectionObject()
-                ), 6
-            );
+    /*Create an object for options*/
+    var options={
+        elt:document.getElementById('map'),
+        zoom:6,
+        latLng:{lat:46.599722, lng:1.496667},
+        mtype:'osmsat',
+        bestFitMargin:0,
+        zoomOnDoubleClick:true
+    };
 
-        }
+    /*Construct an instance of MQA.TileMap with the options object*/
+    window.map = new MQA.TileMap(options);
+
+    {% for snowflake in object_list %}
+    var flake = new MQA.Poi({lat:{{snowflake.latitude}}, lng:{{ snowflake.longitude}} });
+    var icon = new MQA.Icon("{{ STATIC_URL }}js/img/marker.png", {{ snowflake.flakesize }}, {{ snowflake.flakesize }});
+    flake.setIcon(icon);
+    flake.setShadowOffset({x:0,y:0});
+    flake.setInfoContentHTML("{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10), par <a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>{{ snowflake.tweet_object.from_user_name }}</a>{% endif %}");
+    map.addShape(flake);
+    {% endfor %}
+});
+
 </script>
 
 <script type="text/javascript">
