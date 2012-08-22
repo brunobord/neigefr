@@ -1,3 +1,0 @@
-point	title	description
-{% for snowflake in object_list %}{{snowflake.latitude}},{{ snowflake.longitude}}	{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}	TODO
-{% endfor %}
