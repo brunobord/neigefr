@@ -1,39 +1,23 @@
-<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key={{ GOOGLE_MAPS_KEY }}&sensor=false"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}js/OpenLayers.js"></script>
 <script type="text/javascript">
-	function initialize() {
-		var myOptions = {
-			center: new google.maps.LatLng(46.9, 1.3),
-			zoom: 6,
-			mapTypeId: google.maps.MapTypeId.SATELLITE
-		};
-		var map = new google.maps.Map(document.getElementById("map"), myOptions);
-		var snowflakes = Array();
-		var infowindow = new google.maps.InfoWindow({
-			content: "chargement..."
-		});
-		{% for snowflake in object_list %}
-			flakesize = {{ snowflake.flakesize }};
-			half_flakesize = {{ snowflake.flakesize }}/2;
-			marker = new google.maps.Marker({
-				position: new google.maps.LatLng({{snowflake.latitude}}, {{ snowflake.longitude}}),
-				map: map,
-				icon: new google.maps.MarkerImage('{{ STATIC_URL }}snowflake_icon.png',
-					new google.maps.Size(flakesize, flakesize),
-					new google.maps.Point(0,0),
-					new google.maps.Point(half_flakesize, half_flakesize),
-					new google.maps.Size(flakesize, flakesize)
-				),
-				title: "{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}"}
- 			);
-			snowflakes.push(marker);
-	 		google.maps.event.addListener(marker, 'click', function () {
-				infowindow.setContent("<img class='tweet_picture' src='{{ snowflake.tweet_object.profile_image_url }}' alt='Image {{ snowflake.tweet_object.from_user_name }}' /><div class='tweet_body'><a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user_name }}</a><br>{{ snowflake.tweet_object.text }}</div>");
-				infowindow.open(map, this);
-			});
-		{% endfor %}
-	}
-</script>
+        var map, layer;
+        function initialize(){
+            map = new OpenLayers.Map('map');
+            layer = new OpenLayers.Layer.OSM("France");
+            map.addLayer(layer);
 
+            var newl = new OpenLayers.Layer.Text( "text", { location:'{% url text %}'} );
+            map.addLayer(newl);
+
+            map.setCenter(
+                new OpenLayers.LonLat(2.496667, 46.599722).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), 6
+            );
+
+        }
+</script>
 
 <script type="text/javascript">
 
