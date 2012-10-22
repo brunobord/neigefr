@@ -1,0 +1,3 @@
+point	title	description	icon
+{% for snowflake in object_list %}{{snowflake.latitude}},{{ snowflake.longitude}}	{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}	<a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user_name }}</a><br>{{ snowflake.tweet_object.text }}	{{ STATIC_URL }}snowflake_icon.png
+{% endfor %}
