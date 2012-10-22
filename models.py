@@ -1,6 +1,6 @@
 import datetime
 from django.db import models
-import json
+from django.utils import simplejson as json
 
 
 class Zipcode(models.Model):
