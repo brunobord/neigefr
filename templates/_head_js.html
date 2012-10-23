@@ -4,6 +4,8 @@
 <script type="text/javascript">
 	var map, layer;
 
+    OpenLayers.Popup.FramedCloud.prototype.maxSize = new OpenLayers.Size(320, 1024);
+
 	function initialize() {
 
 		map = new OpenLayers.Map("map");
@@ -79,10 +81,12 @@
                 feature = evt.feature;
                 popup = new OpenLayers.Popup.FramedCloud("featurePopup",
                                          feature.geometry.getBounds().getCenterLonLat(),
-                                         new OpenLayers.Size(100,100),
-                                         "<h2>"+feature.attributes.title + "</h2>" +
-                                         feature.attributes.description,
+                                         new OpenLayers.Size(50,50),
+                                         "<h4>"+feature.attributes.title + "</h4>" +
+                                         '<img class="tweet_picture" src="'+feature.attributes.profile_pic+'"/> '
+                                         + feature.attributes.description,
                                          null, true, onPopupClose);
+
                 feature.popup = popup;
                 popup.feature = feature;
                 map.addPopup(popup, true);
