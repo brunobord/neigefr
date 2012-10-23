@@ -1,8 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1><a href="{% url index %}">#neigefr / Twitte ta neige !</a></h1>
+<div class="row">
+	<div class="page-header span7">
+		<h1><a href="{% url index %}">#neigefr <small>Twitte ta neige !</small></a></h1>
+	</div>
+</div>
 
-	<div class="eight columns explications">
+<div class="row">
+
+	<div class="span7 explications">
 	<h2>Foire Aux Questions</h2>
 	<h3>1. Je viens de twitter avec le hashtag #neigefr, et je n'apparais pas !</h3>
 	<p>C'est normal. Il y a un délai maximum de 5mn entre le tweet et son apparition
@@ -34,5 +40,6 @@
 		se contenter de cette imprécision. Tant qu'on n'aura pas correspondance exacte
 		entre un code postal et une commune, on n'aura pas mieux.</p>
 	</div>
+</div>
 
 {% endblock %}

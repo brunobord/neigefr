@@ -1,12 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1><a href="{% url index %}">#neigefr / Twitte ta neige !</a></h1>
-
-	<div class="ten columns map">
-		<div id="map" style="width:100%; height:100%"></div>
+<div class="row">
+	<div class="page-header span12">
+		<h1><a href="{% url index %}">#neigefr <small>Twitte ta neige !</small></a></h1>
 	</div>
+</div>
 
-	<div class="six columns explications">
+<div class="row">
+		<div id="map" class="span8"></div>
+
+
+	<div class="span4 explications">
 	<h3>Comment ça marche ?</h3>
 
 <p>N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver,
@@ -41,7 +45,8 @@ là pour y répondre.</p>
 <p><strong>Avertissement !</strong> On peut dire que ce site en est à sa
 première neige, la peinture est encore assez fraîche. Aussi, merci de bien
 vouloir excuser les différents bugs... et éventuellement <a href="https://github.com/brunobord/neigefr/issues/">les signaler</a>.</p>
-
 	</div>
+
+</div>
 
 {% endblock %}

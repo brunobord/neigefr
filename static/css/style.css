@@ -1,14 +1,11 @@
 h1 {font-family: 'Bubblegum Sans', cursive; text-align: center;}
-h1 a {text-decoration: none;}
-h2 {font-size: 110%; font-weight: bold;}
-h3 {font-size: 100%; font-weight: bold;}
-h4 {font-size: 70%;}
-#map { height: 100%; width: 100%;}
-.map { height: 600px; }
+h1 a {text-decoration: none !important;}
+
+#map {
+    height: 600px;
+}
 .explications { font-size: 90%; }
-q { font-style: italic; }
-#footer { font-size: 75%; text-align: right; border-top: 1px solid #777; margin-top: 1em;}
-.tweet_picture,
-.tweet_body{float:right;}
+.tweet_picture, .tweet_body {float:right;}
 .tweet_body{width:270px;}
 .tweet_picture{width:50px;}
+img { max-width: none; }
