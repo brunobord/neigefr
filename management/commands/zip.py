@@ -2,7 +2,7 @@ import logging
 from django.core.management.base import BaseCommand
 from neigefr.geo import get_geo
 from neigefr.models import Zipcode
-# , CommandError
+
 
 logger = logging.getLogger(__name__)
 
