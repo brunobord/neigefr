@@ -53,11 +53,12 @@ territoire.
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
 * Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets.
 * L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public.
-* J'utilise le framework ["Skeleton"](http://www.getskeleton.com/) pour le layout HTML5.
+* J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5.
+* Les cartes sont propulsées par [OpenStreetMap](http://www.openstreetmap.org/) et [CloudMade](http://maps.cloudmade.com/) et utilisent l'API Javascript [Leaflet](http://leaflet.cloudmade.com/), 
 * La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans)
 
 ### Licence d'utilisation
 
 Le code de cette application Django peut être réutilisé par n'importe qui, pour
 en faire n'importe quoi. Voilà pourquoi j'ai décidé d'élever ce code dans le
-**Domaine Public**.
+**Domaine Public** (aussi appelé CC0).
