@@ -51,12 +51,13 @@ territoire.
 ### Références
 
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
-* Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets.
-* L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public.
-* J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5.
+* Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets,
+* L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public,
+* J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5/CSS. J'espère que votre mobile apprécie,
 * Les cartes sont propulsées par [OpenStreetMap](http://www.openstreetmap.org/) et [CloudMade](http://maps.cloudmade.com/) et utilisent l'API Javascript [Leaflet](http://leaflet.cloudmade.com/), 
-* La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans)
-* La géolocalisation (coordination code postal -> coordonnées GPS) utilise le projet [Geocoders](https://github.com/simonw/geocoders), de Simon Willison
+* La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans),
+* La géolocalisation (coordination code postal -> coordonnées GPS) utilise le projet [Geocoders](https://github.com/simonw/geocoders), de Simon Willison,
+* On récupère les tweets via [requests](https://github.com/kennethreitz/requests), de Kenneth Reitz
 
 ### Licence d'utilisation
 
