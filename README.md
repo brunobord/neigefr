@@ -56,6 +56,7 @@ territoire.
 * J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5.
 * Les cartes sont propulsées par [OpenStreetMap](http://www.openstreetmap.org/) et [CloudMade](http://maps.cloudmade.com/) et utilisent l'API Javascript [Leaflet](http://leaflet.cloudmade.com/), 
 * La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans)
+* La géolocalisation (coordination code postal -> coordonnées GPS) utilise le projet [Geocoders](https://github.com/simonw/geocoders), de Simon Willison
 
 ### Licence d'utilisation
 
