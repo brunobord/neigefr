@@ -53,6 +53,7 @@ territoire.
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
 * Tu peux suivre [@_neigefr](http://twitter.com/_neigefr) sur Twitter, mais ne t'attends pas à un déluge de tweets,
 * L'icône utilisée provient du [Noun project](http://thenounproject.com/noun/snow/#icon-No64), et appartient au domaine public,
+* Elle a été tripatouillée par  [JazzyNico](https://twitter.com/JazzyNico) pour la tricoloriser et la rendre légèrement cocardière sur les bords,
 * J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5/CSS. J'espère que votre mobile apprécie,
 * Les cartes sont propulsées par [OpenStreetMap](http://www.openstreetmap.org/) et [CloudMade](http://maps.cloudmade.com/) et utilisent l'API Javascript [Leaflet](http://leaflet.cloudmade.com/), 
 * La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans),
