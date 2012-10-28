@@ -43,4 +43,4 @@ class Snowflake(models.Model):
             0: 16, 1: 16, 2: 20, 3: 20, 4: 24, 5: 24, 6: 28, 7: 28, 8: 32, 9: 32,
             10: 32
         }
-        return sizes.get(rank, 8)
+        return sizes.get(rank, 16)
