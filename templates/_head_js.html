@@ -21,7 +21,7 @@
         {% for snowflake in object_list %}
 
         var flake_icon = L.icon({
-            iconUrl: '{{ STATIC_URL }}snowflake_icon.png',
+            iconUrl: '{{ STATIC_URL }}{% if snowflake.rank == 0 %}noflake{% else %}snowflake{% endif %}_icon.png',
             iconSize: [{{ snowflake.flakesize }}, {{ snowflake.flakesize }}],
         });
 
