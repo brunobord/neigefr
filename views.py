@@ -17,7 +17,7 @@ class IndexView(ListView):
 
     def get_queryset(self):
         datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=4)
-        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
+        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit)[:100]
         return queryset
 
 
@@ -26,5 +26,5 @@ class TextView(ListView):
 
     def get_queryset(self):
         datetime_limit = datetime.datetime.now() - datetime.timedelta(hours=4)
-        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit).exclude(rank=0)[:100]
+        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit)[:100]
         return queryset
