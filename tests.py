@@ -42,9 +42,9 @@ class FlakeTest(TestCase):
         snowflake = process(data)
         zipcode = snowflake.zipcode
         self.assertEquals(zipcode.zipcode, '64100')
-        self.assertEquals(zipcode.city, 'Bayonne')
-        self.assertEquals(zipcode.latitude, '43.5031621')
-        self.assertEquals(zipcode.longitude, '-1.4724751')
+        self.assertEquals(zipcode.city, u'Bayonne, Aquitaine')
+        self.assertEquals(zipcode.latitude, '43.4833333')
+        self.assertEquals(zipcode.longitude, '-1.4833333')
         self.assertEquals(snowflake.tweet_id, 165074248593969152L)
         self.assertEquals(snowflake.latitude, zipcode.latitude)
         self.assertEquals(snowflake.longitude, zipcode.longitude)
@@ -53,23 +53,23 @@ class FlakeTest(TestCase):
     def test_flakesize(self):
         snowflake = Snowflake()
         snowflake.rank = 0
-        self.assertEquals(snowflake.flakesize, 0)
+        self.assertEquals(snowflake.flakesize, 16)
         snowflake.rank = 1
-        self.assertEquals(snowflake.flakesize, 6)
+        self.assertEquals(snowflake.flakesize, 16)
         snowflake.rank = 2
-        self.assertEquals(snowflake.flakesize, 8)
+        self.assertEquals(snowflake.flakesize, 20)
         snowflake.rank = 3
-        self.assertEquals(snowflake.flakesize, 8)
+        self.assertEquals(snowflake.flakesize, 20)
         snowflake.rank = 4
-        self.assertEquals(snowflake.flakesize, 12)
+        self.assertEquals(snowflake.flakesize, 24)
         snowflake.rank = 5
-        self.assertEquals(snowflake.flakesize, 16)
+        self.assertEquals(snowflake.flakesize, 24)
         snowflake.rank = 6
-        self.assertEquals(snowflake.flakesize, 16)
+        self.assertEquals(snowflake.flakesize, 28)
         snowflake.rank = 7
-        self.assertEquals(snowflake.flakesize, 24)
+        self.assertEquals(snowflake.flakesize, 28)
         snowflake.rank = 8
-        self.assertEquals(snowflake.flakesize, 24)
+        self.assertEquals(snowflake.flakesize, 32)
         snowflake.rank = 9
         self.assertEquals(snowflake.flakesize, 32)
         snowflake.rank = 10
@@ -77,6 +77,6 @@ class FlakeTest(TestCase):
 
         # special cases
         snowflake.rank = None
-        self.assertEquals(snowflake.flakesize, 8)
+        self.assertEquals(snowflake.flakesize, 16)
         snowflake.rank = 11
         self.assertEquals(snowflake.flakesize, 32)
