@@ -22,6 +22,7 @@ class IndexView(ListView):
 
 
 class TextView(ListView):
+    "View for text rendering of the latest flakes. Used by the Leaflet JS toolkit"
     template_name = 'textview.txt'
 
     def get_queryset(self):
