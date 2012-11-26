@@ -56,6 +56,7 @@ territoire.
 * Elle a été tripatouillée par  [JazzyNico](https://twitter.com/JazzyNico) pour la tricoloriser et la rendre légèrement cocardière sur les bords,
 * J'utilise le framework ["Twitter Bootstrap"](http://twitter.github.com/bootstrap/) pour le layout HTML5/CSS. J'espère que votre mobile apprécie,
 * Les cartes sont propulsées par [OpenStreetMap](http://www.openstreetmap.org/) et [CloudMade](http://maps.cloudmade.com/) et utilisent l'API Javascript [Leaflet](http://leaflet.cloudmade.com/), 
+* Les tuiles sont fournies par [Thunderforest](http://thunderforest.com/)
 * La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans),
 * La géolocalisation (coordination code postal -> coordonnées GPS) utilise le projet [Geocoders](https://github.com/simonw/geocoders), de Simon Willison,
 * On récupère les tweets via [requests](https://github.com/kennethreitz/requests), de Kenneth Reitz
