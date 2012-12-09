@@ -27,7 +27,7 @@ def get_object_or_None(klass, *args, **kwargs):
 
 
 def parse_body(body):
-    """Parse the tweet body. Return a Flake object"""
+    """Parse the tweet body. Returns a Flake object"""
     flake = Flake()
     if '#neigefr' not in body:
         return None
@@ -49,7 +49,7 @@ def process(data):
         return None
 
     zipcode = get_object_or_None(Zipcode, zipcode=flake.zipcode)
-    if not zipcode:
+    if zipcode is None:
         longitude, latitude, city = get_geo(flake.zipcode)
         if city:
             zipcode = Zipcode.objects.create(
