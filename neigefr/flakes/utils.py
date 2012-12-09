@@ -19,10 +19,11 @@ class Flake(object):
     ranking = None
 
 
-def find_zipcode(zipcode):
-    """Find a Zipcode object. Or None"""
-    if Zipcode.objects.filter(zipcode=zipcode).exists():
-        return Zipcode.objects.get(zipcode=zipcode)
+def get_object_or_None(klass, *args, **kwargs):
+    try:
+        return klass._default_manager.get(*args, **kwargs)
+    except klass.DoesNotExist:
+        return None
 
 
 def parse_body(body):
@@ -47,7 +48,7 @@ def process(data):
     if not flake.zipcode:
         return None
 
-    zipcode = find_zipcode(flake.zipcode)
+    zipcode = get_object_or_None(Zipcode, zipcode=flake.zipcode)
     if not zipcode:
         longitude, latitude, city = get_geo(flake.zipcode)
         if city:
