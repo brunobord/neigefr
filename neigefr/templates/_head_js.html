@@ -1,13 +1,13 @@
- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
- <!--[if lte IE 8]>
-     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
- <![endif]-->
- <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+<![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
 
 <script type="text/javascript">
-	var map, layer;
+    var map, layer;
 
-	function initialize() {
+    function initialize() {
 
         var map = L.map('map').setView([46.9, 1.3], 6);
         L.tileLayer('http://{s}.tile3.opencyclemap.org/landscape/{z}/{x}/{y}.png', {
@@ -23,28 +23,11 @@
             iconSize: [{{ snowflake.flakesize }}, {{ snowflake.flakesize }}],
         });
 
-        L.marker([{{snowflake.latitude}}, {{snowflake.longitude}}], {icon: flake_icon}).addTo(map)
+        L.marker([{{ snowflake.latitude }}, {{ snowflake.longitude }}], {icon: flake_icon}).addTo(map)
             .bindPopup('<h4>{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}</h4>'
                 + "<img class='tweet_picture' src='{{ snowflake.tweet_object.profile_image_url }}' alt='Image {{ snowflake.tweet_object.from_user_name }}' /><p><a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user_name }}</a><br>{{ snowflake.tweet_object.text|escapejs }}</p>");
         {% endfor %}
 
     }
-
-</script>
-
-
-<script type="text/javascript">
-
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-2980397-12']);
-_gaq.push(['_setDomainName', 'neigefr.org']);
-_gaq.push(['_setAllowLinker', true]);
-_gaq.push(['_trackPageview']);
-
-(function() {
-var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
 
 </script>

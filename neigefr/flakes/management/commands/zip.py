@@ -1,10 +1,12 @@
 import logging
+
 from django.core.management.base import BaseCommand
-from neigefr.geo import get_geo
-from neigefr.models import Zipcode
+
+from ...models import Zipcode
+from ...utils import get_geo
 
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger('neigefr')
 
 
 class Command(BaseCommand):

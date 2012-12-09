@@ -1,6 +1,6 @@
-import datetime
 from django.db import models
 from django.utils import simplejson as json
+from django.utils import timezone
 
 
 class Zipcode(models.Model):
@@ -9,6 +9,9 @@ class Zipcode(models.Model):
     city = models.CharField('city', max_length=255, blank=True)
     latitude = models.CharField('latitude', max_length=100)
     longitude = models.CharField('longitude', max_length=100)
+
+    class Meta:
+        db_table = 'neigefr_zipcode'
 
     def __unicode__(self):
         return self.city or self.zipcode
@@ -22,9 +25,10 @@ class Snowflake(models.Model):
     longitude = models.CharField('longitude', max_length=100)
     rank = models.IntegerField('rank', blank=True, null=True)
     zipcode = models.ForeignKey(Zipcode, blank=True)
-    date_created = models.DateTimeField('date created', default=datetime.datetime.now, db_index=True)
+    date_created = models.DateTimeField('date created', default=timezone.now, db_index=True)
 
     class Meta:
+        db_table = 'neigefr_snowflake'
         verbose_name = 'flake'
         verbose_name_plural = 'flakes'
 

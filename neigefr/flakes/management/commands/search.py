@@ -1,15 +1,16 @@
+import json
 import logging
 import requests
+
 from django.core.management.base import NoArgsCommand
-from neigefr.flake import process
-from neigefr.models import Snowflake
-import json
+
+from ...models import Snowflake
+from ...utils import process
 
 logger = logging.getLogger('neigefr')
 
+
 # https://twitter.com/#!/search/%40twitterapi
-
-
 class Command(NoArgsCommand):
     help = "Is searching for tweets with #neigefr and store them in DB"
 

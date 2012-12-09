@@ -1,3 +1,5 @@
 *.pyc
 *.pyo
+*.db
 .venv/
+neigefr/settings.py
