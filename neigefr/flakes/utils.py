@@ -1,14 +1,14 @@
 import re
 import json
 import logging
+import requests
 
-from geocoders.geonames import geocode
+from django.conf import settings
 
 from .models import Snowflake, Zipcode
 
-SPECIAL_CASES = {'75000': 'Paris'}
-
-ZIPCODE = re.compile('(F-)?([0-9]{5})', re.IGNORECASE)
+HASHTAG = re.compile('#neige({0})'.format('|'.join(settings.COUNTRY_CODES)))
+ZIPCODE = re.compile('(F-|CH-|B-)?([0-9]{4,5})', re.IGNORECASE)
 RANKING = re.compile('([0-9]+)/10')
 
 logger = logging.getLogger('neigefr')
@@ -16,6 +16,7 @@ logger = logging.getLogger('neigefr')
 
 class Flake(object):
     zipcode = None
+    country = None
     ranking = None
 
 
@@ -29,8 +30,10 @@ def get_object_or_None(klass, *args, **kwargs):
 def parse_body(body):
     """Parse the tweet body. Returns a Flake object"""
     flake = Flake()
-    if '#neigefr' not in body:
-        return None
+    matcher = HASHTAG.search(body)
+    if matcher is None:
+        return
+    flake.country = matcher.group(1).upper()
     matcher = ZIPCODE.search(body)
     if matcher:
         flake.zipcode = matcher.group(2)
@@ -47,16 +50,21 @@ def process(data):
         return None
     if not flake.zipcode:
         return None
+    if not flake.country:
+        return None
 
-    zipcode = get_object_or_None(Zipcode, zipcode=flake.zipcode)
+    zipcode = get_object_or_None(Zipcode,
+                                 zipcode=flake.zipcode,
+                                 country=flake.country)
     if zipcode is None:
-        longitude, latitude, city = get_geo(flake.zipcode)
+        city, (latitude, longitude) = geocode(flake.zipcode, flake.country)
         if city:
             zipcode = Zipcode.objects.create(
                 zipcode=flake.zipcode,
                 city=city,
-                longitude=longitude,
-                latitude=latitude
+                country=flake.country,
+                longitude=str(longitude),
+                latitude=str(latitude)
             )
         else:
             logger.error("Zipcode pas trouve {0}".format(flake.zipcode))
@@ -72,9 +80,22 @@ def process(data):
     return snowflake
 
 
-def get_geo(zipcode):
-    searched_code = zipcode
-    if zipcode in SPECIAL_CASES:
-        searched_code = SPECIAL_CASES[zipcode]
-    place, (latitude, longitude) = geocode('%s, France' % searched_code)
-    return str(longitude), str(latitude), place
+def geocode(zipcode, country):
+    if country is None:
+        country = 'FR'
+
+    url = 'http://ws.geonames.org/postalCodeSearchJSON'
+    payload = {
+        'postalcode': zipcode,
+        'country': country,
+    }
+    response = requests.get(url, params=payload)
+    json_data = response.json
+    if not json_data['postalCodes']:
+        return None, (None, None)
+
+    place = json_data['postalCodes'][0]
+    name = place['placeName']
+    if place['adminName1'] and name != place['adminName1']:
+        name += ', ' + place['adminName1']
+    return name, (place['lat'], place['lng'])

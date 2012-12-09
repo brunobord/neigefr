@@ -12,12 +12,9 @@ TESTS = False
 ADMINS = ()
 MANAGERS = ADMINS
 
-TIME_ZONE = 'UTC'
-
-LANGUAGE_CODE = 'fr-fr'
-
 SITE_ID = 1
 
+TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
@@ -65,6 +62,10 @@ INSTALLED_APPS = (
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'root': {
+        'level': 'WARNING',
+        'handlers': ['console'],
+    },
     'handlers': {
         'console': {
             'level': 'DEBUG',
@@ -81,3 +82,9 @@ LOGGING = {
 }
 
 GOOGLE_MAPS_KEY = ''
+
+COUNTRY_CODES = (
+    'fr',
+    'ch',
+    'be',
+)

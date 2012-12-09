@@ -1,5 +1,5 @@
 Django==1.4.2
--e git://github.com/simonw/geocoders#egg=geocoders
 certifi==0.0.8
 chardet==2.1.1
+django-countries==1.5
 requests==0.14.2

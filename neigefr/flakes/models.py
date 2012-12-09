@@ -2,11 +2,14 @@ from django.db import models
 from django.utils import simplejson as json
 from django.utils import timezone
 
+from django_countries import CountryField
+
 
 class Zipcode(models.Model):
     "France-based Zipcode"
     zipcode = models.CharField("zipcode", max_length=10, db_index=True)
     city = models.CharField('city', max_length=255, blank=True)
+    country = CountryField(default='FR')
     latitude = models.CharField('latitude', max_length=100)
     longitude = models.CharField('longitude', max_length=100)
 
