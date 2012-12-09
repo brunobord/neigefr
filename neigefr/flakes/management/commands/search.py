@@ -17,7 +17,7 @@ class Command(NoArgsCommand):
     def handle(self, **options):
         url = 'http://search.twitter.com/search.json?q=%23neigefr'
         last_snowflakes = Snowflake.objects.order_by('-tweet_id')
-        if last_snowflakes.count():
+        if last_snowflakes:
             last = last_snowflakes[0]
             url = "%s&since_id=%d" % (url, last.tweet_id)
         data = requests.get(url)
