@@ -1,6 +1,7 @@
 from django.test import TestCase
-from neigefr.flake import parse_body, process
-from neigefr.models import Snowflake
+
+from .utils import parse_body, process
+from .models import Snowflake
 
 
 class FlakeTest(TestCase):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from neigefr.models import Zipcode, Snowflake
+from .models import Zipcode, Snowflake
 
 
 class ZipcodeAdmin(admin.ModelAdmin):
