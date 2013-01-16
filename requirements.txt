@@ -1,4 +1,4 @@
-Django==1.4.2
+Django==1.4.3
 certifi==0.0.8
 chardet==2.1.1
 django-countries==1.5
