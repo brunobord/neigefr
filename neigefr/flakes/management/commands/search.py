@@ -29,5 +29,6 @@ class Command(NoArgsCommand):
                 payload['since_id'] = last.tweet_id
 
             response = requests.get(url, params=payload)
-            for tweet in response.json['results']:
+            json_data = response.json()
+            for tweet in json_data['results']:
                 process(tweet)
