@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
 
+    'neigefr',  # Backward compatibility reason
     'neigefr.flakes',
 )
 

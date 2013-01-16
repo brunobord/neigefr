@@ -14,6 +14,7 @@ class Zipcode(models.Model):
     longitude = models.CharField('longitude', max_length=100)
 
     class Meta:
+        app_label = 'neigefr'
         db_table = 'neigefr_zipcode'
 
     def __unicode__(self):
@@ -31,6 +32,7 @@ class Snowflake(models.Model):
     date_created = models.DateTimeField('date created', default=timezone.now, db_index=True)
 
     class Meta:
+        app_label = 'neigefr'
         db_table = 'neigefr_snowflake'
         verbose_name = 'flake'
         verbose_name_plural = 'flakes'
