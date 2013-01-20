@@ -25,7 +25,7 @@
 
         L.marker([{{ snowflake.latitude }}, {{ snowflake.longitude }}], {icon: flake_icon}).addTo(map)
             .bindPopup('<h4>{{ snowflake.zipcode }}{% if snowflake.rank %} ({{ snowflake.rank }}/10){% endif %}</h4>'
-                + "<img class='tweet_picture' src='{{ snowflake.tweet_object.profile_image_url }}' alt='Image {{ snowflake.tweet_object.from_user_name }}' /><p><a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user_name }}</a> - <i class=\"icon-time\"></i> {{ snowflake.tweet_time }}<br>{{ snowflake.tweet_object.text|force_escape|escapejs }}<br></p>");
+                + "<img class='tweet_picture' src='{{ snowflake.tweet_object.profile_image_url }}' alt='Image {{ snowflake.tweet_object.from_user_name }}' /><p><a target='_blank' href='https://twitter.com/#!/{{ snowflake.tweet_object.from_user }}/status/{{ snowflake.tweet_id }}'>@{{ snowflake.tweet_object.from_user }}</a> - <i class=\"icon-time\"></i> {{ snowflake.tweet_time }}<br>{{ snowflake.tweet_object.text|force_escape|escapejs }}<br></p>");
         {% endfor %}
 
     }
