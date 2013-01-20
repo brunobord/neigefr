@@ -40,6 +40,19 @@ point il est en train de neiger. A titre indicatif :
 Avec un peu de chances, ton tweet viendra enrichir la carte de l'enneigement en
 France sur [Neige FR](http://neigefr.org).
 
+## Et les Suisses ? Et les Belges ?
+
+Grâce au formidable travail de @zyegfryed (Sébastien Fievet), neigefr.org recense
+désormais les flocons en provenance de Belgique et de Suisse.
+
+Les tags sont respectivement :
+
+* "#neigebe"
+* "#neigech"
+
+*Note* : pour l'instant, le service est en bêta-test et est visible sur [beta.neigefr.org](http://beta.neigefr.org).
+Nous espérons pouvoir prochainement la passer en "production" (cough).
+
 
 ### A quel point c'est précis ?
 
