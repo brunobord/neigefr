@@ -9,7 +9,7 @@ from .models import Snowflake, Zipcode
 
 HASHTAG = re.compile('#neige({0})'.format('|'.join(settings.COUNTRY_CODES)))
 ZIPCODE = re.compile('(F-|CH-|B-)?([0-9]{4,5})', re.IGNORECASE)
-RANKING = re.compile('([0-9]+)/10')
+RANKING = re.compile('((\d+\.)?\d+)/10')
 
 logger = logging.getLogger('neigefr')
 
@@ -39,7 +39,13 @@ def parse_body(body):
         flake.zipcode = matcher.group(2)
     matcher = RANKING.search(body)
     if matcher:
-        flake.ranking = int(matcher.group(1))
+        if matcher.group(1).startswith('0'):
+            flake.ranking = 1
+        else:
+            flake.ranking = int(float(matcher.group(1)))
+        # Small security
+        if flake.ranking > 10:
+            flake.ranking = 10
     return flake
 
 

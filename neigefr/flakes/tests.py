@@ -15,6 +15,24 @@ class FlakeTest(TestCase):
         flake = parse_body(content)
         self.assertEquals(flake.ranking, 10)
 
+    def test_parse_ranking(self):
+        content = "#neigefr 64100 0.5/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 1)
+        content = "#neigefr 64100 0.000004/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 1)
+        content = "#neigefr 64100 0.000001/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 1)
+        content = "#neigefr 64100 3.141592/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 3)
+        content = "#neigefr 64100 11/10"
+        flake = parse_body(content)
+        self.assertEquals(flake.ranking, 10)
+
+
     def test_process(self):
         data = {
             "iso_language_code": "fr",
