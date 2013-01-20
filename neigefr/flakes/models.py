@@ -1,3 +1,5 @@
+import time
+from datetime import datetime
 from django.db import models
 from django.utils import simplejson as json
 from django.utils import timezone
@@ -41,6 +43,14 @@ class Snowflake(models.Model):
     def tweet_object(self):
         "Load the tweet full object, for eventual further analysis"
         return json.loads(self.tweet)
+
+    @property
+    def tweet_time(self):
+        "Return the time property of the tweet"
+        time_struct = time.strptime(self.tweet_object['created_at'],
+                "%a, %d %b %Y %H:%M:%S +0000")
+        date_datetime = datetime.fromtimestamp(time.mktime(time_struct))
+        return date_datetime.strftime("%H:%M")
 
     @property
     def flakesize(self):
