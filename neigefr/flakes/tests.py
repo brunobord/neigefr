@@ -32,7 +32,6 @@ class FlakeTest(TestCase):
         flake = parse_body(content)
         self.assertEquals(flake.ranking, 10)
 
-
     def test_process(self):
         data = {
             "iso_language_code": "fr",
