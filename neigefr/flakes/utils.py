@@ -90,7 +90,7 @@ def geocode(zipcode, country):
         'country': country,
     }
     response = requests.get(url, params=payload)
-    json_data = response.json
+    json_data = response.json()
     if not json_data['postalCodes']:
         return None, (None, None)
 
