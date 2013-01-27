@@ -50,10 +50,6 @@ Les tags sont respectivement :
 * "#neigebe"
 * "#neigech"
 
-*Note* : pour l'instant, le service est en bêta-test et est visible sur [beta.neigefr.org](http://beta.neigefr.org).
-Nous espérons pouvoir prochainement la passer en "production" (cough).
-
-
 ### A quel point c'est précis ?
 
 Tout dépend de toi. De toi, de tes amis, et de ta propension à twitter dès qu'il
