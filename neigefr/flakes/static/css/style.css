@@ -9,3 +9,5 @@ h1 a {text-decoration: none !important;}
 .tweet_body{width:270px;}
 .tweet_picture{width:50px;}
 img { max-width: none; }
+.actions {text-align:right;}
+#levels a {text-align:left;}
