@@ -5,11 +5,29 @@
 </div>
 
 <div class="row">
-    <div class="span12">
-            <p class="pull-right"><a class="btn btn-info" data-toggle="modal" data-target="#modal-explications">
-      Comment ça marche ?
-    </a></p>
-
+    <div class="actions btn-toolbar span12">
+        <div class="btn-group">
+            <a class="btn dropdown-toggle btn-tweet" data-toggle="dropdown" href="#">
+                Je twitte ma neige !
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" id="levels">
+                <li><a href="#">Y'a plus la neige… :-(</a></li>
+                <li><a href="#">Flocons épars</a></li>
+                <li><a href="#">Ça floconne doucement</a></li>
+                <li><a href="#">Petite averse</a></li>
+                <li><a href="#">Gentille averse</a></li>
+                <li><a href="#">Moyenne averse</a></li>
+                <li><a href="#">Solide averse</a></li>
+                <li><a href="#">Sérieuse averse</a></li>
+                <li><a href="#">Tempête de neige !</a></li>
+                <li><a href="#">Je viens de me réfugier dans ma cave</a></li>
+                <li><a href="#">LE JOUR D'APRÈS</a></li>
+            </ul>
+        </div>
+        <a class="btn btn-info" data-toggle="modal" data-target="#modal-explications">
+            Comment ça marche ?
+        </a>
     </div>
 </div>
 
@@ -17,62 +35,59 @@
     <div id="map" class="span12"></div>
 </div>
 
+<div class="explications modal hide fade" id="modal-explications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Comment ça marche ?</h3>
+    </div>
 
+    <div class="modal-body">
+        <p>N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver,
+        il peut twitter comme suit :</p>
 
-    <div class="explications modal hide fade" id="modal-explications" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h3>Comment ça marche ?</h3>
-  </div>
-<div class="modal-body">
+        <blockquote><p> LOL il neige #neigefr 75008 3/10 MDR </p> </blockquote>
 
-<p>N'importe quel twittos, dès qu'il voit des machins blancs tomber du ciel, l'hiver,
-il peut twitter comme suit :</p>
+        <p>Les éléments indispensables sont :</p>
 
-    <blockquote><p> LOL il neige #neigefr 75008 3/10 MDR </p> </blockquote>
+        <ul>
+            <li><em>"#neigefr"</em> : c'est le hashtag <strong>OFFICIEL</strong></li>
+            <li><em>"75008"</em>: c'est le code postal de l'endroit où tombe la neige.</li>
+        </ul>
 
-<p>Les éléments indispensables sont :</p>
+        <p>De manière optionnelle, tu peux ajouter un <em>"niveau"</em> sur 10 qui indique à quel
+        point il est en train de neiger. À titre indicatif :</p>
 
-<ul>
-    <li><em>"#neigefr"</em> : c'est le hashtag <strong>OFFICIEL</strong></li>
-    <li><em>"75008"</em>: c'est le code postal de l'endroit où tombe la neige.</li>
-</ul>
+        <ul>
+            <li><strong>7/10</strong> ou plus - Tempête de neige !</li>
+            <li><strong>5/10</strong> ou <strong>6/10</strong> - Solide averse</li>
+            <li><strong>3/10</strong> ou <strong>4/10</strong> - Petite averse</li>
+            <li><strong>1/10</strong> ou <strong>2/10</strong> - Quelques flocons</li>
+            <li><strong>0/10</strong> - Y'a plus la neige... :-(</li>
+        </ul>
 
-<p>De manière optionnelle, tu peux ajouter un <em>"niveau"</em> sur 10 qui indique à quel
-point il est en train de neiger. À titre indicatif :</p>
+        <p>Avec un peu de chance, ton tweet viendra enrichir la carte de l'enneigement
+        en France sur <a href="http://neigefr.org">Neige FR</a>.</p>
 
-<ul>
-<li><strong>7/10</strong> ou plus - Tempête de neige !</li>
-<li><strong>5/10</strong> ou <strong>6/10</strong> - Solide averse</li>
-<li><strong>3/10</strong> ou <strong>4/10</strong> - Petite averse</li>
-<li><strong>1/10</strong> ou <strong>2/10</strong> - Quelques flocons</li>
-<li><strong>0/10</strong> - Y'a plus la neige... :-(</li>
-</ul>
+        <p><strong>Et les autres alors ? Et les Suisses ou les Belges ?</strong></p>
+        <p>Eh bien, réjouissez vous ! dès à présent, nos amis Suisses et Belges peuvent
+        Twitter leur neige, en utilisant respectivement les hashtags <tt>#neigech</tt>
+        et <tt>#neigebe</tt>. Pour le reste, c'est idem: on prend en compte les codes
+        postaux et l'intensité (en option).</p>
 
-<p>Avec un peu de chance, ton tweet viendra enrichir la carte de l'enneigement
-en France sur <a href="http://neigefr.org">Neige FR</a>.</p>
+        <p> Exemples : </p>
 
-<p><strong>Et les autres alors ? Et les Suisses ou les Belges ?</strong></p>
-<p>Eh bien, réjouissez vous ! dès à présent, nos amis Suisses et Belges peuvent
-Twitter leur neige, en utilisant respectivement les hashtags <tt>#neigech</tt>
-et <tt>#neigebe</tt>. Pour le reste, c'est idem: on prend en compte les codes
-postaux et l'intensité (en option).</p>
+        <blockquote>
+            <p>Il #neigech à Lausanne 1004 1/10, ça joue !</p>
+            <p>Il #neigebe 1050, c'est caillant !</p>
+        </blockquote>
 
-<p> Exemples : </p>
+        <p>Si certaines questions restent sans réponse : <a href="{% url faq %}">La Foire Aux Questions</a> est
+        là pour y répondre.</p>
 
-<blockquote>
-    <p>Il #neigech à Lausanne 1004 1/10, ça joue !</p>
-    <p>Il #neigebe 1050, c'est caillant !</p>
-</blockquote>
-
-<p>Si certaines questions restent sans réponse : <a href="{% url faq %}">La Foire Aux Questions</a> est
-là pour y répondre.</p>
-
-<p><strong>Avertissement !</strong> On peut dire que ce site en est à sa
-première neige, la peinture est encore assez fraîche. Aussi, merci de bien
-vouloir excuser les différents bugs... et éventuellement <a href="https://github.com/brunobord/neigefr/issues/">les signaler</a>.</p>
-
-</div>
+        <p><strong>Avertissement !</strong> On peut dire que ce site en est à sa
+        première neige, la peinture est encore assez fraîche. Aussi, merci de bien
+        vouloir excuser les différents bugs... et éventuellement <a href="https://github.com/brunobord/neigefr/issues/">les signaler</a>.</p>
+    </div>
 </div>
 
 {% endblock %}
