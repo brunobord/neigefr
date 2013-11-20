@@ -99,6 +99,13 @@ Créez un fichier ``neigefr/settings.py`` et ajoutez-y le minimum:
     )
 
 
+    CONSUMER_KEY = 'my fantastic consumer key'
+    CONSUMER_SECRET = 'my great consumer key'
+    ACCESS_TOKEN = 'my smashing access token'
+    ACCESS_TOKEN_SECRET = 'my awesome access token secret'
+
+
+
 ### Références
 
 * J'ai "piqué" quelques lignes de code issues de [https://github.com/bruntonspall/uksnow](https://github.com/bruntonspall/uksnow), le code de `#uksnow`
@@ -110,7 +117,7 @@ Créez un fichier ``neigefr/settings.py`` et ajoutez-y le minimum:
 * Les tuiles sont fournies par [Thunderforest](http://thunderforest.com/)
 * La police du titre est ["Bubblegum Sans"](http://www.google.com/webfonts/specimen/Bubblegum+Sans),
 * La géolocalisation (coordination code postal -> coordonnées GPS) utilise le projet [Geocoders](https://github.com/simonw/geocoders), de Simon Willison,
-* On récupère les tweets via [requests](https://github.com/kennethreitz/requests), de Kenneth Reitz
+* On récupère les tweets via [twitter-python](https://github.com/bear/python-twitter), de Mike Taylor.
 
 ### Licence d'utilisation
 
