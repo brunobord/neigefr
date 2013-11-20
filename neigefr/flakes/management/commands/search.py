@@ -1,5 +1,5 @@
 import logging
-import requests
+import twitter
 
 from django.conf import settings
 from django.core.management.base import NoArgsCommand
@@ -16,19 +16,23 @@ class Command(NoArgsCommand):
 
     def handle(self, **options):
         for country in settings.COUNTRY_CODES:
-            url = 'http://search.twitter.com/search.json'
-            payload = {
-               'q': '%23neige{0}'.format(country.lower()),
+            kwargs = {
+                'term': '%23neige{0}'.format(country.lower())
             }
 
             last_snowflakes = Snowflake.objects.filter(
                 zipcode__country=country.upper()
             ).order_by('-tweet_id')
+
             if last_snowflakes:
                 last = last_snowflakes[0]
-                payload['since_id'] = last.tweet_id
-
-            response = requests.get(url, params=payload)
-            json_data = response.json()
-            for tweet in json_data['results']:
+                kwargs['since_id'] = last.tweet_id
+            api = twitter.Api(
+                consumer_key=settings.CONSUMER_KEY,
+                consumer_secret=settings.CONSUMER_SECRET,
+                access_token_key=settings.ACCESS_TOKEN,
+                access_token_secret=settings.ACCESS_TOKEN_SECRET
+            )
+            response = api.GetSearch(**kwargs)
+            for tweet in response:
                 process(tweet)

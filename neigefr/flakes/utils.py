@@ -1,5 +1,4 @@
 import re
-import json
 import logging
 import requests
 
@@ -49,9 +48,9 @@ def parse_body(body):
     return flake
 
 
-def process(data):
+def process(tweet):
     """Process JSON data"""
-    flake = parse_body(data['text'])
+    flake = parse_body(tweet.text)
     if not flake:
         return None
     if not flake.zipcode:
@@ -76,8 +75,8 @@ def process(data):
             logger.error("Zipcode pas trouve {0}".format(flake.zipcode))
             return
     snowflake = Snowflake.objects.create(
-        tweet_id=data['id'],
-        tweet=json.dumps(data),
+        tweet_id=tweet.id,
+        tweet=tweet.AsJsonString(),
         latitude=zipcode.latitude,
         longitude=zipcode.longitude,
         rank=flake.ranking,
