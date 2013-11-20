@@ -47,10 +47,16 @@ class Snowflake(models.Model):
     @property
     def tweet_time(self):
         "Return the time property of the tweet"
-        time_struct = time.strptime(self.tweet_object['created_at'],
-                "%a, %d %b %Y %H:%M:%S +0000")
-        date_datetime = datetime.fromtimestamp(time.mktime(time_struct))
-        return date_datetime.strftime("%H:%M")
+        try:
+            time_struct = time.strptime(self.tweet_object['created_at'],
+                                        "%a, %d %b %Y %H:%M:%S +0000")
+            date_datetime = datetime.fromtimestamp(time.mktime(time_struct))
+            return date_datetime.strftime("%H:%M")
+        except:
+            time_struct = time.strptime(self.tweet_object['created_at'],
+                                        "%a %b %d %H:%M:%S +0000 %Y")
+            date_datetime = datetime.fromtimestamp(time.mktime(time_struct))
+            return date_datetime.strftime("%H:%M")
 
     @property
     def flakesize(self):
