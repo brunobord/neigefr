@@ -1,11 +1,11 @@
 import logging
+import twitter
 
 from django.conf import settings
 from django.core.management.base import NoArgsCommand
 
 from ...models import Snowflake
 from ...utils import process
-from ....settings import api
 
 logger = logging.getLogger('neigefr')
 
@@ -27,7 +27,12 @@ class Command(NoArgsCommand):
             if last_snowflakes:
                 last = last_snowflakes[0]
                 kwargs['since_id'] = last.tweet_id
-
+            api = twitter.Api(
+                consumer_key=settings.CONSUMER_KEY,
+                consumer_secret=settings.CONSUMER_SECRET,
+                access_token_key=settings.ACCESS_TOKEN,
+                access_token_secret=settings.ACCESS_TOKEN_SECRET
+            )
             response = api.GetSearch(**kwargs)
             for tweet in response:
                 process(tweet)
