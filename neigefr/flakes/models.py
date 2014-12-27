@@ -31,13 +31,17 @@ class Snowflake(models.Model):
     longitude = models.CharField('longitude', max_length=100)
     rank = models.IntegerField('rank', blank=True, null=True)
     zipcode = models.ForeignKey(Zipcode, blank=True)
-    date_created = models.DateTimeField('date created', default=timezone.now, db_index=True)
+    date_created = models.DateTimeField(
+        'date created', default=timezone.now, db_index=True)
 
     class Meta:
         app_label = 'neigefr'
         db_table = 'neigefr_snowflake'
         verbose_name = 'flake'
         verbose_name_plural = 'flakes'
+
+    def __unicode__(self):
+        return u"%(zipcode)s - %(rank)d/10"
 
     @property
     def tweet_object(self):
@@ -65,7 +69,10 @@ class Snowflake(models.Model):
         if self.rank > 10:
             rank = 10
         sizes = {
-            0: 16, 1: 16, 2: 20, 3: 20, 4: 24, 5: 24, 6: 28, 7: 28, 8: 32, 9: 32,
-            10: 32
+            0: 16, 1: 16,
+            2: 20, 3: 20,
+            4: 24, 5: 24,
+            6: 28, 7: 28,
+            8: 32, 9: 32, 10: 32
         }
         return sizes.get(rank, 16)

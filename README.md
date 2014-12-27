@@ -103,7 +103,13 @@ Créez un fichier ``neigefr/settings.py`` et ajoutez-y le minimum:
     CONSUMER_SECRET = 'my great consumer key'
     ACCESS_TOKEN = 'my smashing access token'
     ACCESS_TOKEN_SECRET = 'my awesome access token secret'
+    GEOCODE_USERNAME = 'mygeocodeusername'
 
+### Geocode
+
+Vous devrez d'abord [créer un compte utilisateur sur geonames.org](http://www.geonames.org)
+**et** activer l'API gratuite pour pouvoir utiliser la base de données des
+codes postaux.
 
 
 ### Références

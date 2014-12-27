@@ -93,6 +93,7 @@ def geocode(zipcode, country):
     payload = {
         'postalcode': zipcode,
         'country': country,
+        'username': settings.GEOCODE_USERNAME
     }
     response = requests.get(url, params=payload)
     json_data = response.json()
