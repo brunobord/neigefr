@@ -1,7 +1,14 @@
 from django.test import TestCase
 
+from twitter import Status
+
 from .utils import parse_body, process
 from .models import Snowflake
+
+
+class FakeSnowflake(object):
+    def __init__(self, tweet_id, text):
+        self.id, self.text = tweet_id, text
 
 
 class FlakeTest(TestCase):
@@ -57,7 +64,8 @@ class FlakeTest(TestCase):
                 "result_type": "recent"
             }
         }
-        snowflake = process(data)
+        tweet = Status(**data)
+        snowflake = process(tweet)
         zipcode = snowflake.zipcode
         self.assertEquals(zipcode.zipcode, '64100')
         self.assertEquals(zipcode.city, u'Bayonne, Aquitaine')
