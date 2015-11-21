@@ -4,4 +4,4 @@ help:
 	@echo "test: run tests for neigefr"
 
 test:
-	tox -- flakes
+	tox
