@@ -10,7 +10,8 @@ from .models import Snowflake
 class FlakeMixin(object):
     def get_queryset(self):
         datetime_limit = timezone.now() - datetime.timedelta(hours=4)
-        queryset = Snowflake.objects.exclude(date_created__lt=datetime_limit)[:100]
+        queryset = Snowflake.objects.exclude(
+            date_created__lt=datetime_limit)[:100]
         return queryset
 
 

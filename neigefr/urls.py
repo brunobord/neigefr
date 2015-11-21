@@ -6,11 +6,12 @@ from django.views.generic import TemplateView
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
-
-    url(r'^faq/?$', TemplateView.as_view(template_name='faq.html'), name='faq'),
+    url(r'^faq/?$',
+        TemplateView.as_view(template_name='faq.html'), name='faq'),
     url(r'^', include('neigefr.flakes.urls')),
 )
 

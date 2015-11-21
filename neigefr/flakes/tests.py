@@ -45,15 +45,15 @@ class FlakeTest(TestCase):
             "iso_language_code": "fr",
             "to_user_name": "Seb Solere",
             "to_user_id_str": "137994749",
-            "profile_image_url_https": "https://si0.twimg.com/profile_images/329883768/3697028883_0ae17360f9_b_normal.jpg",
+            "profile_image_url_https": "https://si0.twimg.com/profile_images/329883768/3697028883_0ae17360f9_b_normal.jpg",  # noqa
             "from_user_id_str": "14979950",
             "text": "#neigefr 64100 2/10",
             "from_user_name": "Bruno Bord",
             "in_reply_to_status_id_str": "165073316988723201",
-            "profile_image_url": "http://a3.twimg.com/profile_images/329883768/3697028883_0ae17360f9_b_normal.jpg",
+            "profile_image_url": "http://a3.twimg.com/profile_images/329883768/3697028883_0ae17360f9_b_normal.jpg",  # noqa
             "id": 165074248593969152,
             "to_user": "sebsolere",
-            "source": "&lt;a href=&quot;http://twirssi.com&quot; rel=&quot;nofollow&quot;&gt;Twirssi&lt;/a&gt;",
+            "source": "&lt;a href=&quot;http://twirssi.com&quot; rel=&quot;nofollow&quot;&gt;Twirssi&lt;/a&gt;",  # noqa
             "in_reply_to_status_id": 165073316988723201,
             "id_str": "165074248593969152",
             "from_user": "brunobord",

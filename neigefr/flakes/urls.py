@@ -3,6 +3,7 @@ from django.conf.urls.defaults import patterns, url
 
 from . import views
 
-urlpatterns = patterns('',
+urlpatterns = patterns(
+    '',
     url(r'', views.index, name='index'),
 )
