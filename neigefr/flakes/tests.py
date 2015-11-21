@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.core.urlresolvers import reverse
 
 from twitter import Status
 
@@ -106,3 +107,14 @@ class FlakeTest(TestCase):
         self.assertEquals(snowflake.flakesize, 16)
         snowflake.rank = 11
         self.assertEquals(snowflake.flakesize, 32)
+
+
+class ViewTest(TestCase):
+
+    def test_home(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+
+    def test_faq(self):
+        response = self.client.get(reverse('faq'))
+        self.assertEqual(response.status_code, 200)

@@ -25,9 +25,3 @@ class IndexView(FlakeMixin, ListView):
         context['GOOGLE_MAPS_KEY'] = settings.GOOGLE_MAPS_KEY
         return context
 index = IndexView.as_view()
-
-
-class FlakeView(FlakeMixin, ListView):
-    "View for text rendering of the latest flakes. Used by the Leaflet JS toolkit"
-    template_name = 'flakes/flake_list.txt'
-flake_list = FlakeView.as_view()
