@@ -3,3 +3,4 @@
 *.db
 .venv/
 neigefr/settings.py
+.tox/
