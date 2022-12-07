@@ -1,5 +1,5 @@
 Django==1.4.3
-certifi==0.0.8
+certifi==2022.12.7
 chardet==2.1.1
 django-countries==1.5
 python-twitter==1.1
